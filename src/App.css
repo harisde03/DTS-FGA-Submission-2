@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-family: 'Courgette', cursive;
+}
+
+.App {
+  text-align: center;
+  background-color: #6D8B74;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+button {
+  color: #435445;
+  background-color: #EFEAD8;
+  margin: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80px;
+}
+
+.Add-button {
+  width: fit-content;
+  margin: 24px;
+}
+
+button:hover {
+  background-color: #C0BDB0;
+}
+
+input[type='text'] {
+  width: 45%;
+  padding: 12px 16px;
+  margin: 8px;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #435445;
+}
+
+input[type='text']:disabled {
+  background-color: #EFEAD8;
+}
+
+input[type='text']:focus {
+  outline: none;
+}
+
+.Modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(95, 113, 97, 0.5);
+  display: flex;
+}
+
+.Modal-inner {
+  width: 400px;
+  margin: auto;
+  background-color: #EFEAD8;
+  border-radius: 10px;
+}
+
+.Modal-header {
+  background-color: #D0C9C0;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  margin: 0;
+  padding: 0;
+}
+
+.Modal-header p {
+  color: #435445;
+  margin: 0;
+  padding: 12px;
+}
+
+.Modal-input {
+  color: #5876a3;
+  width: 100%;
+  justify-content: center;
+  margin: 24px 0;
+  display: flex;
+}
+
+.Modal-input input {
+  width: 100%;
+  margin: 24px 26px 0 26px;
+}
+
+.Modal-btn {
+  display: flex;
+  justify-content: end;
+  padding: 18px;
+}
+
+.Check-todo {
+  height: 44px;
+  width: 44px;
+  padding: 0;
+  background-color: #EFEAD8;
+  border-radius: 100%;
+  vertical-align: top;
+}
+
+.Check-todo:hover {
+  background-color: #C0BDB0;
+}
+
+@media screen and (max-width: 576px) {
+  input[type='text'] {
+    width: 75%;
+    padding: 12px 16px;
+    margin: 8px;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #435445;
+  }
+}
