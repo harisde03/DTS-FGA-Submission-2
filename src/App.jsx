@@ -6,31 +6,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoLists: [
+      todoLists: localStorage.getItem('todoLists') ? JSON.parse(localStorage.getItem('todoLists')) : [
         {
-          todo: 'Belajar Javascript',
-          isDone: true
-        },
-        {
-          todo: 'Selesaikan Project 1',
-          isDone: true
-        },
-        {
-          todo: 'Belajar React',
-          isDone: true
-        },
-        {
-          todo: 'Selesaikan Project 2',
-          isDone: true
-        },
-        {
-          todo: 'Belajar Lebih Banyak!',
+          todo: 'New Todo',
           isDone: false
         }
       ]
     }
 
-    this.handleAdd = this.handleAdd.bind(this);
     this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
     this.handleUpdateDone = this.handleUpdateDone.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -45,7 +28,7 @@ class App extends React.Component {
           isDone: false
         }
       ]
-    })
+    });
   }
 
   handleUpdateTodo(index, newTodoList) {
@@ -53,7 +36,7 @@ class App extends React.Component {
     newTodoLists[index] = newTodoList
     this.setState({
       todoLists: newTodoLists
-    })
+    });
   }
 
   handleUpdateDone(index) {
@@ -61,7 +44,7 @@ class App extends React.Component {
     newTodoLists[index].isDone = !newTodoLists[index].isDone;
     this.setState({
       todoLists: newTodoLists
-    })
+    });
   }
 
   handleDelete(index) {
@@ -69,13 +52,20 @@ class App extends React.Component {
     newTodoLists.splice(index, 1);
     this.setState({
       todoLists: newTodoLists
-    })
+    });
   }
 
   render() {
+    localStorage.setItem('todoLists', JSON.stringify(this.state.todoLists));
+    
+    let empty;
+    if (!this.state.todoLists.length) {
+      empty = <div>Nothing Todo</div>
+    }
+
     return (
       <div className="App">
-        <h1 className="App-title">My Todo App</h1>
+        <h1 className="App-title">My Todo List</h1>
         {
           this.state.todoLists.map((todoList, index) =>
             <Todo
@@ -88,6 +78,7 @@ class App extends React.Component {
             />
           )
         }
+        {empty}
         <div>
           <button className="Add-button" onClick={() => { this.handleAdd() }}>Add Todo List</button>
         </div>

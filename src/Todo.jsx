@@ -10,11 +10,6 @@ class Todo extends React.Component {
       },
       isModalOpen: false
     }
-
-    this.handleModal = this.handleModal.bind(this);
-    this.handleSaveModal = this.handleSaveModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   handleModal() {
